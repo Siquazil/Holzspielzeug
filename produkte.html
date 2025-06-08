@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Holzliebe – Produkte</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">🌲 Holzliebe</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="produkte.html">Produkte</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <main>
+  <h1>Unsere Spielzeuge</h1>
+  <div class="filter">
+  <div class="filter-buttons">
+    <button class="filter-button active" data-filter="alle">Alle</button>
+    <button class="filter-button" data-filter="zug">Züge</button>
+    <button class="filter-button" data-filter="puzzle">Puzzle</button>
+    <button class="filter-button" data-filter="steckspiel">Steckspiele</button>
+  </div>
+
+  <select class="filter-dropdown">
+    <option value="alle">Alle</option>
+    <option value="zug">Züge</option>
+    <option value="puzzle">Puzzle</option>
+    <option value="steckspiel">Steckspiele</option>
+  </select>
+</div>
+<div class="sortierung">
+  <label for="sortieren">Sortieren nach:</label>
+  <select id="sortieren">
+    <option value="default">Standard</option>
+    <option value="preis-auf">Preis aufsteigend</option>
+    <option value="preis-ab">Preis absteigend</option>
+  </select>
+</div>
+  <section class="produktliste">
+    <div class="produkt zug" data-preis="29.9">
+      <img src="https://placehold.co/250x180?text=Holzzug&font=source-sans-pro" alt="Holzzug" />
+      <h2>Holzzug</h2>
+      <p>Ein liebevoll gefertigter Holzzug mit bunten Rädern.</p>
+      <p class="preis">29,90 €</p>
+      <button>In den Warenkorb</button>
+    </div>
+    <div class="produkt puzzle" data-preis="19.90">
+      <img src="https://placehold.co/250x180?text=Tierpuzzle&font=source-sans-pro" alt="Tierpuzzle" />
+      <h2>Tierpuzzle</h2>
+      <p>Ein süßes Puzzle aus hellem Holz mit Tierformen.</p>
+      <p class="preis">19,90 €</p>
+      <button>In den Warenkorb</button>
+    </div>
+    <div class="produkt steckspiel" data-preis="24.90">
+      <img src="https://placehold.co/250x180?text=Steckspiel&font=source-sans-pro" alt="Steckspiel" />
+      <h2>Steckspiel</h2>
+      <p>Fördert Motorik und Farbenlernen – stapelbares Steckspiel.</p>
+      <p class="preis">24,90 €</p>
+      <button>In den Warenkorb</button>
+    </div>
+  </section>
+</main>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Holzliebe – Handgemachtes Holzspielzeug mit Herz</p>
+  </footer>
+  <body class="fade">
+  <script>
+  const buttons = document.querySelectorAll('.filter-button');
+  const dropdown = document.querySelector('.filter-dropdown');
+  const produkte = document.querySelectorAll('.produkt');
+
+  function filterProdukte(kategorie) {
+    produkte.forEach(produkt => {
+      produkt.classList.toggle('hidden', !(kategorie === 'alle' || produkt.classList.contains(kategorie)));
+    });
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.filter-button.active')?.classList.remove('active');
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      dropdown.value = filter;
+      filterProdukte(filter);
+    });
+  });
+
+  dropdown.addEventListener('change', () => {
+    const value = dropdown.value;
+    document.querySelector('.filter-button.active')?.classList.remove('active');
+    document.querySelector(`.filter-button[data-filter="${value}"]`)?.classList.add('active');
+    filterProdukte(value);
+  });
+</script>
+<script>
+  const sortDropdown = document.getElementById('sortieren');
+  const produktContainer = document.querySelector('.produktliste');
+  const alleProdukte = Array.from(document.querySelectorAll('.produkt'));
+
+  sortDropdown.addEventListener('change', () => {
+    const sortierung = sortDropdown.value;
+    let sortierteProdukte = [...alleProdukte];
+
+    if (sortierung === 'preis-auf') {
+      sortierteProdukte.sort((a, b) => parseFloat(a.dataset.preis) - parseFloat(b.dataset.preis));
+    } else if (sortierung === 'preis-ab') {
+      sortierteProdukte.sort((a, b) => parseFloat(b.dataset.preis) - parseFloat(a.dataset.preis));
+    }
+
+    // Nur sichtbare Produkte umsortieren
+    const sichtbar = sortierteProdukte.filter(p => !p.classList.contains('hidden'));
+    sichtbar.forEach(produkt => produktContainer.appendChild(produkt));
+  });
+</script>
+</body>
+</html>
