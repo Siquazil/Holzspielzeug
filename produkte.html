@@ -52,21 +52,21 @@
       <h2>Holzzug</h2>
       <p>Ein liebevoll gefertigter Holzzug mit bunten Rädern.</p>
       <p class="preis">29,90 €</p>
-      <button class="warenkorb-button">In den Warenkorb</button>
+      <button>In den Warenkorb</button>
     </div>
     <div class="produkt puzzle" data-preis="19.90">
      <img src="bilder/tierpuzzle.jpg" alt="Tierpuzzle" />
       <h2>Tierpuzzle</h2>
       <p>Ein süßes Puzzle aus hellem Holz mit Tierformen.</p>
       <p class="preis">19,90 €</p>
-      <button class="warenkorb-button">In den Warenkorb</button>
+      <button>In den Warenkorb</button>
     </div>
     <div class="produkt steckspiel" data-preis="24.90">
      <img src="bilder/steckspiel.jpg" alt="Steckspiel" />
       <h2>Steckspiel</h2>
       <p>Fördert Motorik und Farbenlernen – stapelbares Steckspiel.</p>
       <p class="preis">24,90 €</p>
-     <button class="warenkorb-button">In den Warenkorb</button>
+     <button>In den Warenkorb</button>
     </div>
   </section>
 </main>
@@ -78,7 +78,7 @@
   </footer>
   <body class="fade">
   <script>
-  const button = document.querySelectorAll('.filter-button');
+  const buttons = document.querySelectorAll('.filter-button');
   const dropdown = document.querySelector('.filter-dropdown');
   const produkte = document.querySelectorAll('.produkt');
 
@@ -123,24 +123,6 @@
     // Nur sichtbare Produkte umsortieren
     const sichtbar = sortierteProdukte.filter(p => !p.classList.contains('hidden'));
     sichtbar.forEach(produkt => produktContainer.appendChild(produkt));
-  });
-</script>
-<script>
-  let warenkorbZähler = 0;
-  const zählerAnzeige = document.getElementById("warenkorb-zähler");
-  const buttons = document.querySelectorAll(".warenkorb-button");
-
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      warenkorbZähler++;
-      zählerAnzeige.textContent = warenkorbZähler;
-      button.textContent = "✓ Hinzugefügt";
-      button.disabled = true;
-      setTimeout(() => {
-        button.textContent = "In den Warenkorb";
-        button.disabled = false;
-      }, 1500);
-    });
   });
 </script>
 </body>

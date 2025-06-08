@@ -305,3 +305,19 @@ footer {
   border-radius: 6px;
   border: 1px solid #ccc;
 }
+.warenkorb-icon {
+  position: relative;
+  font-size: 1.2rem;
+  background-color: #fff8f2;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  color: #8b5e3c;
+  cursor: default;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
