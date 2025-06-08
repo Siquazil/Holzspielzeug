@@ -19,7 +19,7 @@ header {
   top: 0;
   width: 100%;
   background-color: #f5e9dc; /* pastell-beige */
-  padding: 20px;
+  padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
@@ -28,8 +28,11 @@ header {
 }
 
 .logo img {
-  height: 50px;
+  height: 60px;       /* oder z. B. 70px, wenn du es größer willst */
+  max-height: 80px;
+  width: auto;
   object-fit: contain;
+  display: block;
 }
 
 /* ========== Navigation ========== */
