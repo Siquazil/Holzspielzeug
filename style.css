@@ -139,6 +139,7 @@ footer {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
 /* ========== Produktseite ========== */
 .produktliste {
   display: flex;
@@ -193,6 +194,7 @@ footer {
   transform: scale(0.95);
   display: none;
 }
+
 /* ========== Kontaktformular ========== */
 .kontakt {
   max-width: 600px;
@@ -233,6 +235,7 @@ footer {
 .kontakt button:hover {
   background-color: #c15e47;
 }
+
 /* ========== Sanfte Fade-In Animation ========== */
 .fade {
   opacity: 0;
@@ -249,6 +252,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 /* Filter-Styling */
 .filter {
   text-align: center;
