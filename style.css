@@ -18,17 +18,14 @@ body {
 
 /* ========== Header ========== */
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #f5e9dc; /* pastell-beige */
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000; /* Sicherstellen, dass der Header oben bleibt */
+  padding: 10px 20px;
+  background-color: #f5e9dc;
 }
+
 
 .logo img {
   height: 60px;       /* oder z. B. 70px, wenn du es größer willst */
@@ -319,4 +316,20 @@ footer {
   font-size: 1rem;
   border-radius: 6px;
   border: 1px solid #ccc;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden; /* verhindert horizontales Scrollen */
+}
+
+header,
+main,
+section,
+footer {
+  max-width: 100%;
+  overflow-x: hidden;
 }
