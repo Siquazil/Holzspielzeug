@@ -10,7 +10,7 @@ body {
   background-color: #fdfaf6; /* leichtes Cremeweiß */
   color: #333;
   line-height: 1.6;
-  padding-top: 80px; /* Platz für Header */
+  padding-top: 100px; /* Erhöhe den Abstand entsprechend der Header-Höhe */
   overflow-x: hidden; /* Verhindert horizontales Scrollen */
   margin: 0;
   padding: 0;
@@ -27,8 +27,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
-  max-width: 100%;
+  z-index: 1000; /* Sicherstellen, dass der Header oben bleibt */
 }
 
 .logo img {
@@ -294,19 +293,19 @@ footer {
 /* Mobile: Zeige Dropdown statt Buttons */
 @media (max-width: 600px) {
   .filter-buttons {
-    display: none;
+    display: flex;
   }
   .filter-dropdown {
-    display: inline-block;
+    display: none;
   }
 
   .produkt {
-    width: 100%; /* Produkte nehmen die gesamte Breite ein */
+    width: auto; /* Produkte behalten ihre ursprüngliche Breite */
   }
 
   .filter-buttons {
-    flex-direction: column; /* Buttons untereinander anordnen */
-    gap: 5px;
+    flex-direction: row; /* Buttons nebeneinander anordnen */
+    gap: 10px;
   }
 }
 
