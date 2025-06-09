@@ -11,6 +11,9 @@ body {
   color: #333;
   line-height: 1.6;
   padding-top: 80px; /* Platz für Header */
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+  margin: 0;
+  padding: 0;
 }
 
 /* ========== Header ========== */
@@ -25,6 +28,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  max-width: 100%;
 }
 
 .logo img {
@@ -56,9 +60,10 @@ nav a:hover {
 
 /* ========== Main-Bereich ========== */
 main {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 10px;
+  overflow-x: hidden;
 }
 
 /* ========== Footer ========== */
@@ -69,6 +74,7 @@ footer {
   font-size: 0.9rem;
   margin-top: 40px;
   color: #8b5e3c;
+  max-width: 100%;
 }
 
 /* ========== Hero-Bereich ========== */
@@ -137,9 +143,7 @@ footer {
 .produktliste {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
   justify-content: center;
-  margin-top: 40px;
 }
 
 .produkt {
@@ -149,6 +153,7 @@ footer {
   width: 250px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .produkt img {
@@ -181,6 +186,12 @@ footer {
 
 .produkt button:hover {
   background-color: #c15e47;
+}
+
+.produkt.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  display: none;
 }
 /* ========== Kontaktformular ========== */
 .kontakt {
@@ -248,7 +259,7 @@ footer {
   display: flex;
   justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Verhindert, dass Buttons über den Bildschirm hinausragen */
   margin-bottom: 10px;
 }
 
@@ -284,18 +295,17 @@ footer {
   .filter-dropdown {
     display: inline-block;
   }
+
+  .produkt {
+    width: 100%; /* Produkte nehmen die gesamte Breite ein */
+  }
+
+  .filter-buttons {
+    flex-direction: column; /* Buttons untereinander anordnen */
+    gap: 5px;
+  }
 }
 
-/* Produkt anzeigen/ausblenden sanft */
-.produkt {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.produkt.hidden {
-  opacity: 0;
-  transform: scale(0.95);
-  display: none;
-}
 .sortierung {
   text-align: center;
   margin: 20px auto;
